@@ -30,6 +30,12 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) and [docs/PHASE1-VALIDATION.md](docs/PH
 Strava upload is designed for (per-rider linked accounts and an upload table exist in the database) and will be
 the last feature, optional and off by default.
 
+## Download
+
+Get **KineticTrainer-0.2.0-Windows.zip** from the [latest release](https://github.com/Enallane5/kinetic-trainer/releases/latest).
+It unzips to one folder with `KineticTrainer-Setup.exe`, a `Portable` copy that runs without installing, and
+`READ ME FIRST.txt`.
+
 ## Run it
 
 Run `KineticTrainer-Setup.exe`, or copy the `KineticTrainer-win-x64` folder anywhere and run `KineticTrainer.exe`.

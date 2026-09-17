@@ -34,3 +34,18 @@ if ($iscc) {
 } else {
   Write-Host "Inno Setup not found; skipped KineticTrainer-Setup.exe (the folder/zip above runs as-is)."
 }
+
+# One download for moving to another PC: a folder with the installer, a portable copy and instructions.
+$version = ([xml](Get-Content (Join-Path $PSScriptRoot 'Directory.Build.props'))).Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1
+$bundleName = "KineticTrainer-$version-Windows"
+$bundle = Join-Path $PSScriptRoot "dist\$bundleName"
+if (Test-Path $bundle) { Remove-Item $bundle -Recurse -Force }
+New-Item -ItemType Directory -Path $bundle | Out-Null
+$setup = Join-Path $PSScriptRoot 'dist\KineticTrainer-Setup.exe'
+if (Test-Path $setup) { Copy-Item $setup -Destination $bundle }
+Copy-Item $out -Destination (Join-Path $bundle 'Portable') -Recurse
+Copy-Item (Join-Path $PSScriptRoot 'installer\READ ME FIRST.txt') -Destination $bundle
+$bundleZip = "$bundle.zip"
+if (Test-Path $bundleZip) { Remove-Item $bundleZip -Force }
+Compress-Archive -Path $bundle -DestinationPath $bundleZip
+Write-Host "Bundle: $bundleZip"

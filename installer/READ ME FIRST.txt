@@ -1,0 +1,27 @@
+Kinetic Trainer - Windows download
+===================================
+
+This folder has everything needed. Nothing else has to be installed first.
+
+OPTION 1 - Install (recommended)
+  Double-click KineticTrainer-Setup.exe and follow the prompts.
+  It installs for your Windows user only (no administrator rights needed) and adds
+  Start menu and optional desktop shortcuts.
+  If Windows SmartScreen says "Windows protected your PC", click "More info" then "Run anyway"
+  (the app is not code-signed).
+
+OPTION 2 - Run without installing
+  Open the "Portable" folder and double-click KineticTrainer.exe.
+  You can copy the Portable folder anywhere, including a USB stick.
+
+Requirements
+  Windows 10 (version 1809 or later) or Windows 11, 64-bit, with Bluetooth LE.
+
+First run on a new computer
+  1. Wake the inRide by spinning the roller, then go to Sensor and click "Scan for sensors",
+     then "Connect". The app remembers it and reconnects automatically after that.
+  2. Set your FTP on the Profile page (or take one of the FTP tests under Workouts).
+  3. Riders, rides and settings are stored per computer in %LOCALAPPDATA%\KineticTrainer.
+     Ride files (FIT/TCX) are saved in Documents\KineticTrainer\Rides.
+     To move your history to this computer, copy kinetic-trainer.db from that folder on the
+     old computer (with the app closed on both).
