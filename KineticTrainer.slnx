@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/KineticTrainer.Core/KineticTrainer.Core.csproj" />
+    <Project Path="src/KineticTrainer.Protocol/KineticTrainer.Protocol.csproj" />
+    <Project Path="src/KineticTrainer.Bluetooth/KineticTrainer.Bluetooth.csproj" />
+    <Project Path="src/KineticTrainer.Bluetooth.WinRt/KineticTrainer.Bluetooth.WinRt.csproj" />
+    <Project Path="src/KineticTrainer.SimulatorBridge/KineticTrainer.SimulatorBridge.csproj" />
+    <Project Path="src/KineticTrainer.Persistence/KineticTrainer.Persistence.csproj" />
+    <Project Path="src/KineticTrainer.Recording/KineticTrainer.Recording.csproj" />
+    <Project Path="src/KineticTrainer.Workouts/KineticTrainer.Workouts.csproj" />
+    <Project Path="src/KineticTrainer.App/KineticTrainer.App.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/KineticTrainer.Tests/KineticTrainer.Tests.csproj" />
+  </Folder>
+</Solution>

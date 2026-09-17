@@ -1,0 +1,16 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Recovery Spin 30</name>
+    <description>Easy 30-minute active-recovery spin below 55% FTP. Stay in an easy gear and spin smoothly; shift down if power drifts above the target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Recovery"/>
+    </tags>
+    <workout>
+        <Warmup Duration="300" PowerLow="0.40" PowerHigh="0.50"/>
+        <SteadyState Duration="1200" Power="0.50">
+            <textevent timeoffset="0" message="Easy spin: keep it relaxed, below 55% FTP"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Loopback-only TCP server that streams TrainerTelemetry as newline-delimited JSON to a Unity simulator. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KineticTrainer.App.Views.DebugPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:KineticTrainer.App.ViewModels"
+    NavigationCacheMode="Required">
+
+    <Grid Padding="16" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12">
+            <ToggleButton Content="Pause" IsChecked="{x:Bind ViewModel.IsPaused, Mode=TwoWay}" />
+            <Button Content="Clear" Command="{x:Bind ViewModel.ClearCommand}" />
+            <Button Content="Copy packets" Command="{x:Bind ViewModel.CopyPacketsCommand}" />
+            <Button Content="Copy events" Command="{x:Bind ViewModel.CopyEventsCommand}" />
+            <Button Content="Open log folder" Command="{x:Bind ViewModel.OpenLogFolderCommand}" />
+            <CheckBox Content="Show debug-level events" IsChecked="{x:Bind ViewModel.ShowDebugEvents, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Spacing="2">
+            <TextBlock Text="{x:Bind ViewModel.StatsText, Mode=OneWay}" FontFamily="{StaticResource MonoFont}" IsTextSelectionEnabled="True" />
+            <TextBlock Text="{x:Bind ViewModel.LogFileText, Mode=OneWay}" FontFamily="{StaticResource MonoFont}" Opacity="0.7" IsTextSelectionEnabled="True" />
+        </StackPanel>
+
+        <!-- Packets -->
+        <Grid Grid.Row="2" RowSpacing="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Power packets (newest first)" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+            <Grid Grid.Row="1" ColumnSpacing="8" Padding="8,2" Opacity="0.7">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontFamily" Value="Consolas" />
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="55" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="time" />
+                <TextBlock Grid.Column="1" Text="raw (as received)" />
+                <TextBlock Grid.Column="2" Text="decoded (inRide only)" />
+                <TextBlock Grid.Column="3" Text="W" />
+                <TextBlock Grid.Column="4" Text="cadence(raw)" />
+                <TextBlock Grid.Column="5" Text="roller" />
+                <TextBlock Grid.Column="6" Text="speed" />
+                <TextBlock Grid.Column="7" Text="state" />
+                <TextBlock Grid.Column="8" Text="cmd" />
+                <TextBlock Grid.Column="9" Text="detail" />
+            </Grid>
+            <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Packets}" SelectionMode="None" BorderThickness="1"
+                      BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" CornerRadius="4" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollMode="Enabled">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinHeight" Value="24" />
+                        <Setter Property="Padding" Value="8,0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:PacketRow">
+                        <Grid ColumnSpacing="8">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontFamily" Value="Consolas" />
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="55" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="110" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{x:Bind Time}" FontSize="12" />
+                            <TextBlock Grid.Column="1" Text="{x:Bind Raw}" FontSize="12" IsTextSelectionEnabled="True" />
+                            <TextBlock Grid.Column="2" Text="{x:Bind Plain}" FontSize="12" Opacity="0.8" IsTextSelectionEnabled="True" />
+                            <TextBlock Grid.Column="3" Text="{x:Bind Power}" FontSize="12" FontWeight="Bold" />
+                            <TextBlock Grid.Column="4" Text="{x:Bind Cadence}" FontSize="12" />
+                            <TextBlock Grid.Column="5" Text="{x:Bind Roller}" FontSize="12" />
+                            <TextBlock Grid.Column="6" Text="{x:Bind Speed}" FontSize="12" />
+                            <TextBlock Grid.Column="7" Text="{x:Bind State}" FontSize="12" />
+                            <TextBlock Grid.Column="8" Text="{x:Bind Cmd}" FontSize="12" />
+                            <TextBlock Grid.Column="9" Text="{x:Bind Extra}" FontSize="12" Opacity="0.8" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <TextBlock Grid.Row="3" Text="Events (connection, GATT, reconnect, rejected packets, commands)" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+        <ListView Grid.Row="4" ItemsSource="{x:Bind ViewModel.Events}" SelectionMode="None" BorderThickness="1"
+                  BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" CornerRadius="4">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="MinHeight" Value="22" />
+                    <Setter Property="Padding" Value="8,0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:EventRow">
+                    <TextBlock Text="{x:Bind Line}" FontFamily="{StaticResource MonoFont}" FontSize="12" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Manual control point + simulator controls -->
+        <StackPanel Grid.Row="5" Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="Control point (hex):" VerticalAlignment="Center" />
+                <TextBox Text="{x:Bind ViewModel.ControlPointHex, Mode=TwoWay}" MinWidth="320" FontFamily="{StaticResource MonoFont}" PlaceholderText="e.g. 2367015a028f02b603470120000800" />
+                <Button Content="Write" Command="{x:Bind ViewModel.WriteControlPointCommand}" />
+                <Button Content="Fill: 1 Hz" Command="{x:Bind ViewModel.FillConfigureCommandCommand}" CommandParameter="1" />
+                <Button Content="2 Hz" Command="{x:Bind ViewModel.FillConfigureCommandCommand}" CommandParameter="2" />
+                <Button Content="4 Hz" Command="{x:Bind ViewModel.FillConfigureCommandCommand}" CommandParameter="4" />
+                <TextBlock Text="{x:Bind ViewModel.CommandStatus, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.8" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="12" Visibility="{x:Bind ViewModel.SimVisible, Mode=OneWay}">
+                <TextBlock Text="SIMULATOR:" FontWeight="Bold" Foreground="DarkOrange" VerticalAlignment="Center" />
+                <TextBlock Text="speed km/h" VerticalAlignment="Center" />
+                <Slider Minimum="0" Maximum="60" Width="160" Value="{x:Bind ViewModel.SimSpeedKph, Mode=TwoWay}" />
+                <TextBlock Text="cadence" VerticalAlignment="Center" />
+                <Slider Minimum="0" Maximum="130" Width="160" Value="{x:Bind ViewModel.SimCadence, Mode=TwoWay}" />
+                <CheckBox Content="Malformed packets" IsChecked="{x:Bind ViewModel.SimMalformed, Mode=TwoWay}" />
+                <CheckBox Content="Out of range" IsChecked="{x:Bind ViewModel.SimUnreachable, Mode=TwoWay}" />
+                <Button Content="Drop link" Command="{x:Bind ViewModel.SimDropCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

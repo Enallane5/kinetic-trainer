@@ -1,0 +1,18 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Tempo 3x12</name>
+    <description>Three 12-minute tempo blocks at 82% FTP to build muscular endurance. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Tempo"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.70"/>
+        <IntervalsT Repeat="3" OnDuration="720" OffDuration="240" OnPower="0.82" OffPower="0.55">
+            <textevent timeoffset="0" message="Interval 1 of 3"/>
+            <textevent timeoffset="960" message="Interval 2 of 3"/>
+            <textevent timeoffset="1920" message="Interval 3 of 3"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

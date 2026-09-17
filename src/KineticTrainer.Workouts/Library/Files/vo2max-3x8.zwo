@@ -1,0 +1,18 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>VO2 Max 3x8</name>
+    <description>Three long 8-minute aerobic-power intervals at 106% FTP with 4-minute recoveries. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="3" OnDuration="480" OffDuration="240" OnPower="1.06" OffPower="0.50">
+            <textevent timeoffset="0" message="Interval 1 of 3"/>
+            <textevent timeoffset="720" message="Interval 2 of 3"/>
+            <textevent timeoffset="1440" message="Interval 3 of 3"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

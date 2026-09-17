@@ -1,0 +1,86 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Cadence and Pedalling Drills</name>
+    <description>Low-power pedalling drills (high-cadence reps, single-leg work and spin-ups) where cadence is the real target. Use a light gear so your cadence, not the resistance, sets the power.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Endurance"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.65"/>
+        <IntervalsT Repeat="5" OnDuration="60" OffDuration="60" OnPower="0.65" OffPower="0.60" Cadence="110" CadenceResting="90">
+            <textevent timeoffset="0" message="High-cadence block: 1 min at 110+ rpm / 1 min at 85-90 rpm"/>
+            <textevent timeoffset="240" message="Rep 3 of 5"/>
+            <textevent timeoffset="480" message="Rep 5 of 5"/>
+        </IntervalsT>
+        <SteadyState Duration="180" Power="0.60">
+            <textevent timeoffset="0" message="Easy 3 minutes"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="Leg drill 1 of 3: LEFT leg only, smooth circles"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="RIGHT leg only"/>
+        </SteadyState>
+        <SteadyState Duration="120" Power="0.60">
+            <textevent timeoffset="0" message="Both legs"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="Leg drill 2 of 3: LEFT leg only, smooth circles"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="RIGHT leg only"/>
+        </SteadyState>
+        <SteadyState Duration="120" Power="0.60">
+            <textevent timeoffset="0" message="Both legs"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="Leg drill 3 of 3: LEFT leg only, smooth circles"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.40">
+            <textevent timeoffset="0" message="RIGHT leg only"/>
+        </SteadyState>
+        <SteadyState Duration="120" Power="0.60">
+            <textevent timeoffset="0" message="Both legs"/>
+        </SteadyState>
+        <SteadyState Duration="180" Power="0.60">
+            <textevent timeoffset="0" message="Easy 3 minutes"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Spin-up 1 of 5: build to your fastest smooth cadence"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Hold max smooth cadence, no bouncing"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Spin-up 2 of 5: build to your fastest smooth cadence"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Hold max smooth cadence, no bouncing"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Spin-up 3 of 5: build to your fastest smooth cadence"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Hold max smooth cadence, no bouncing"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Spin-up 4 of 5: build to your fastest smooth cadence"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Hold max smooth cadence, no bouncing"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Spin-up 5 of 5: build to your fastest smooth cadence"/>
+        </SteadyState>
+        <SteadyState Duration="30" Power="0.55">
+            <textevent timeoffset="0" message="Hold max smooth cadence, no bouncing"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <Cooldown Duration="300" PowerLow="0.55" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

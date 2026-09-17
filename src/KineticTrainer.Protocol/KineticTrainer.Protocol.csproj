@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Pure C# port of Kinetic's inRide 2 protocol logic (kinetic-fit/sensors-swift-kinetic, SDK 2.3.4).
+    No BLE, no UI, no platform APIs: raw byte arrays in, strongly typed results out.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="KineticTrainer.Tests" />
+  </ItemGroup>
+</Project>

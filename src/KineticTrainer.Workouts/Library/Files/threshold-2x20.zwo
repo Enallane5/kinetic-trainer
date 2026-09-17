@@ -1,0 +1,19 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Threshold 2x20</name>
+    <description>Two 20-minute efforts at 97% FTP with 8-minute recoveries to extend time at threshold. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Threshold"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="2" OnDuration="1200" OffDuration="480" OnPower="0.97" OffPower="0.55">
+            <textevent timeoffset="0" message="Interval 1 of 2: hold 97% FTP, start controlled"/>
+            <textevent timeoffset="600" message="Interval 1: halfway"/>
+            <textevent timeoffset="1680" message="Interval 2 of 2: hold 97% FTP"/>
+            <textevent timeoffset="2280" message="Interval 2: halfway"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.55" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

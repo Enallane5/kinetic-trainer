@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Structured workouts: model, ZWO import/export, timeline, built-in library, FTP tests and playback. No UI, no BLE. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Built-in library, embedded so the app needs no loose files. Resource name = file name. -->
+    <EmbeddedResource Include="Library\Files\*.zwo" LogicalName="KineticTrainer.Workouts.Library.%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="KineticTrainer.Tests" />
+  </ItemGroup>
+</Project>

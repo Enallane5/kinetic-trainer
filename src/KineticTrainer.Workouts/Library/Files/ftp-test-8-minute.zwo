@@ -1,0 +1,39 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>FTP Test - 8 Minute</name>
+    <description>CTS 8-minute FTP test: warm-up, then two 8-minute all-out time trials with 10 minutes of easy spinning between them (FTP = 90% of the better 8-minute average). Pace each effort so you can hold it for the full 8 minutes; the target is only a guide.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Test"/>
+        <tag name="FTP Test 8 min"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.70">
+            <textevent timeoffset="0" message="FTP test: 10-minute progressive warm-up"/>
+        </Warmup>
+        <IntervalsT Repeat="3" OnDuration="60" OffDuration="60" OnPower="0.75" OffPower="0.50" Cadence="100">
+            <textevent timeoffset="0" message="Fast pedalling 1 of 3: 1 min at 100 rpm"/>
+            <textevent timeoffset="120" message="Fast pedalling 2 of 3"/>
+            <textevent timeoffset="240" message="Fast pedalling 3 of 3"/>
+        </IntervalsT>
+        <SteadyState Duration="240" Power="0.55">
+            <textevent timeoffset="0" message="4 minutes easy before the first effort"/>
+        </SteadyState>
+        <SteadyState Duration="480" Power="1.10">
+            <textevent timeoffset="0" message="EFFORT 1 of 2: ride as hard as you can sustain for 8 minutes"/>
+            <textevent timeoffset="240" message="Halfway: hold your pace"/>
+            <textevent timeoffset="420" message="Last minute: empty the tank"/>
+        </SteadyState>
+        <SteadyState Duration="600" Power="0.50">
+            <textevent timeoffset="0" message="10 minutes easy: recover for the second effort"/>
+        </SteadyState>
+        <SteadyState Duration="480" Power="1.10">
+            <textevent timeoffset="0" message="EFFORT 2 of 2: ride as hard as you can sustain for 8 minutes"/>
+            <textevent timeoffset="240" message="Halfway: hold your pace"/>
+            <textevent timeoffset="420" message="Last minute: empty the tank"/>
+        </SteadyState>
+        <Cooldown Duration="600" PowerLow="0.55" PowerHigh="0.40">
+            <textevent timeoffset="0" message="Test complete: cool down easy"/>
+        </Cooldown>
+    </workout>
+</workout_file>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="KineticTrainer.App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary Source="ms-appx:///Styles/KineticTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Kinetic Fit accent (#78C957, from the app's own colour resources) for every stock control.
+                 Light/Dark steps are derived tints and shades. -->
+            <Color x:Key="SystemAccentColor">#FF78C957</Color>
+            <Color x:Key="SystemAccentColorLight1">#FF8BD36C</Color>
+            <Color x:Key="SystemAccentColorLight2">#FF78C957</Color>
+            <Color x:Key="SystemAccentColorLight3">#FF9EDC82</Color>
+            <Color x:Key="SystemAccentColorDark1">#FF62A547</Color>
+            <Color x:Key="SystemAccentColorDark2">#FF4F8639</Color>
+            <Color x:Key="SystemAccentColorDark3">#FF3C672B</Color>
+
+            <!-- Kinetic's UI is square-cornered. -->
+            <CornerRadius x:Key="ControlCornerRadius">2</CornerRadius>
+            <CornerRadius x:Key="OverlayCornerRadius">2</CornerRadius>
+
+            <!-- Page chrome on the Kinetic page colour. -->
+            <SolidColorBrush x:Key="NavigationViewContentBackground" Color="#FF181818" />
+            <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#FF0D0D0D" />
+            <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#FF0D0D0D" />
+            <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="#FF0D0D0D" />
+            <Thickness x:Key="NavigationViewContentGridBorderThickness">0</Thickness>
+
+            <FontFamily x:Key="MonoFont">Consolas</FontFamily>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,29 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>30/30 Intervals</name>
+    <description>Two sets of 10 x 30 seconds at 120% FTP with 30 seconds easy, to accumulate time near VO2 max. Shift into a harder gear just before each rep and raise cadence to hit the target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="10" OnDuration="30" OffDuration="30" OnPower="1.20" OffPower="0.50">
+            <textevent timeoffset="0" message="Set 1 of 2: 10 x 30 s hard at 120% FTP / 30 s easy"/>
+            <textevent timeoffset="240" message="Rep 5 of 10: halfway through set 1"/>
+            <textevent timeoffset="540" message="Rep 10 of 10: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.50">
+            <textevent timeoffset="0" message="Recover 5 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="10" OnDuration="30" OffDuration="30" OnPower="1.20" OffPower="0.50">
+            <textevent timeoffset="0" message="Set 2 of 2: 10 x 30 s hard at 120% FTP / 30 s easy"/>
+            <textevent timeoffset="240" message="Rep 5 of 10: halfway through set 2"/>
+            <textevent timeoffset="540" message="Rep 10 of 10: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.50">
+            <textevent timeoffset="0" message="Recover 5 minutes"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

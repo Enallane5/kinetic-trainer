@@ -1,0 +1,20 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>VO2 Max 5x5</name>
+    <description>Five 5-minute efforts at 110% FTP with equal recovery to raise aerobic power. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="5" OnDuration="300" OffDuration="300" OnPower="1.10" OffPower="0.50">
+            <textevent timeoffset="0" message="Interval 1 of 5"/>
+            <textevent timeoffset="600" message="Interval 2 of 5"/>
+            <textevent timeoffset="1200" message="Interval 3 of 5"/>
+            <textevent timeoffset="1800" message="Interval 4 of 5"/>
+            <textevent timeoffset="2400" message="Interval 5 of 5"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

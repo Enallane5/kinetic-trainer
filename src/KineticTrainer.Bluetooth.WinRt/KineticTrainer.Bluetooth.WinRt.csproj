@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Windows implementation of the sensor transport using Windows.Devices.Bluetooth (WinRT). -->
+  <PropertyGroup>
+    <TargetFramework>$(KtWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(KtMinWindows)</TargetPlatformMinVersion>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Bluetooth\KineticTrainer.Bluetooth.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Protocol\KineticTrainer.Protocol.csproj" />
+  </ItemGroup>
+</Project>

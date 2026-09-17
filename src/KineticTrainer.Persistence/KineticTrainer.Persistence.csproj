@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Local SQLite persistence. Phase 1: settings + remembered sensor, with schema versioning ready for ride history. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Recording\KineticTrainer.Recording.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="KineticTrainer.Tests" />
+  </ItemGroup>
+</Project>

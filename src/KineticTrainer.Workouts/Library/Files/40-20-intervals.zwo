@@ -1,0 +1,37 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>40/20 Intervals</name>
+    <description>Three sets of 8 x 40 seconds at 120% FTP with 20-second recoveries for VO2 max and anaerobic capacity. Shift up at the start of each 40 s and back down for each 20 s rest to match the targets.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="8" OnDuration="40" OffDuration="20" OnPower="1.20" OffPower="0.55">
+            <textevent timeoffset="0" message="Set 1 of 3: 8 x 40 s at 120% FTP / 20 s easy"/>
+            <textevent timeoffset="240" message="Rep 5 of 8"/>
+            <textevent timeoffset="420" message="Rep 8 of 8: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.50">
+            <textevent timeoffset="0" message="Recover 5 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="8" OnDuration="40" OffDuration="20" OnPower="1.20" OffPower="0.55">
+            <textevent timeoffset="0" message="Set 2 of 3: 8 x 40 s at 120% FTP / 20 s easy"/>
+            <textevent timeoffset="240" message="Rep 5 of 8"/>
+            <textevent timeoffset="420" message="Rep 8 of 8: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.50">
+            <textevent timeoffset="0" message="Recover 5 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="8" OnDuration="40" OffDuration="20" OnPower="1.20" OffPower="0.55">
+            <textevent timeoffset="0" message="Set 3 of 3: 8 x 40 s at 120% FTP / 20 s easy"/>
+            <textevent timeoffset="240" message="Rep 5 of 8"/>
+            <textevent timeoffset="420" message="Rep 8 of 8: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.50">
+            <textevent timeoffset="0" message="Recover 5 minutes"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

@@ -1,0 +1,18 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Endurance Z2 60</name>
+    <description>One hour of steady aerobic base work in the endurance zone (56-75% FTP). On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Endurance"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.65"/>
+        <SteadyState Duration="2700" Power="0.68">
+            <textevent timeoffset="0" message="Settle into a steady endurance gear at 68% FTP"/>
+            <textevent timeoffset="1350" message="Halfway: stay smooth and steady"/>
+            <textevent timeoffset="2400" message="Last 5 minutes of the main block"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.65" PowerHigh="0.45"/>
+    </workout>
+</workout_file>

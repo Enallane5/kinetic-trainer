@@ -1,0 +1,10 @@
+bin/
+obj/
+dist/
+artifacts/
+*.user
+.vs/
+TestResults/
+tools/reference-vectors/_kinetic-src/
+tools/reference-vectors/harness.exe
+tools/reference-vectors/*.pdb

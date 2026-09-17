@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KineticTrainer.App.Views.WorkoutEditorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:KineticTrainer.App.Controls"
+    xmlns:vm="using:KineticTrainer.App.ViewModels"
+    Background="{ThemeResource KineticBackgroundBrush}">
+
+    <Grid Padding="24,16" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{x:Bind ViewModel.Heading, Mode=OneWay}" Style="{StaticResource KineticPageTitleStyle}" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                <Button Content="Cancel" Command="{x:Bind ViewModel.CancelCommand}" Style="{StaticResource KineticOutlineButtonStyle}" />
+                <Button Content="Save" Command="{x:Bind ViewModel.SaveCommand}" Style="{StaticResource KineticPrimaryButtonStyle}" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <TextBox Header="Name" Text="{x:Bind ViewModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ComboBox Grid.Column="1" Header="Category" IsEditable="True" ItemsSource="{x:Bind ViewModel.CategoryOptions}"
+                      Text="{x:Bind ViewModel.Category, Mode=TwoWay}" HorizontalAlignment="Stretch" />
+            <TextBox Grid.Column="2" Header="Description" Text="{x:Bind ViewModel.Description, Mode=TwoWay}" />
+        </Grid>
+
+        <StackPanel Grid.Row="2" Spacing="4">
+            <c:WorkoutProfileChart Height="150" Timeline="{x:Bind ViewModel.Preview, Mode=OneWay}" Ftp="{x:Bind ViewModel.ChartFtp}" ColorByZone="{x:Bind ViewModel.ColorByZone}" />
+            <TextBlock Text="{x:Bind ViewModel.SummaryText, Mode=OneWay}" Foreground="{ThemeResource KineticAccentBrush}" />
+            <TextBlock Text="{x:Bind ViewModel.ErrorText, Mode=OneWay}" Foreground="{ThemeResource KineticDangerBrush}" TextWrapping="Wrap"
+                       Visibility="{x:Bind c:Bind.VisibleIfText(ViewModel.ErrorText), Mode=OneWay}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="6">
+            <TextBlock Text="ADD" Style="{StaticResource KineticLabelStyle}" VerticalAlignment="Center" Margin="0,0,6,0" />
+            <Button Content="Warm-up" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="warmup" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Steady" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="steady" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Intervals" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="intervals" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Ramp" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="ramp" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Free ride" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="free" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Max effort" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="max" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <Button Content="Cool-down" Command="{x:Bind ViewModel.AddStepCommand}" CommandParameter="cooldown" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+            <TextBlock Text="{x:Bind ViewModel.FtpHint}" Foreground="{ThemeResource KineticTextSecondaryBrush}" VerticalAlignment="Center" Margin="12,0,0,0" />
+        </StackPanel>
+
+        <ListView Grid.Row="4" ItemsSource="{x:Bind ViewModel.Steps}" SelectedItem="{x:Bind ViewModel.SelectedStep, Mode=TwoWay}" SelectionMode="Single">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Background" Value="{ThemeResource KineticSurfaceBrush}" />
+                    <Setter Property="Margin" Value="0,0,0,2" />
+                    <Setter Property="Padding" Value="8,4" />
+                    <Setter Property="CornerRadius" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:StepRow">
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox ItemsSource="{x:Bind KindOptions}" SelectedIndex="{x:Bind KindIndex, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                            <TextBox Header="Duration" Text="{x:Bind Duration, Mode=TwoWay}" Width="90" Visibility="{x:Bind HasDuration, Mode=OneWay}" />
+                            <NumberBox Header="Start %" Value="{x:Bind PowerLow, Mode=TwoWay}" Width="90" Minimum="0" Maximum="400" Visibility="{x:Bind IsRamped, Mode=OneWay}" />
+                            <NumberBox Header="End %" Value="{x:Bind PowerHigh, Mode=TwoWay}" Width="90" Minimum="0" Maximum="400" Visibility="{x:Bind IsRamped, Mode=OneWay}" />
+                            <NumberBox Header="Power %" Value="{x:Bind PowerLow, Mode=TwoWay}" Width="90" Minimum="0" Maximum="400" Visibility="{x:Bind IsSteady, Mode=OneWay}" />
+                            <NumberBox Header="Repeats" Value="{x:Bind Repeat, Mode=TwoWay}" Width="80" Minimum="1" Maximum="100" Visibility="{x:Bind IsIntervals, Mode=OneWay}" />
+                            <TextBox Header="On" Text="{x:Bind OnDuration, Mode=TwoWay}" Width="80" Visibility="{x:Bind IsIntervals, Mode=OneWay}" />
+                            <NumberBox Header="On %" Value="{x:Bind OnPower, Mode=TwoWay}" Width="80" Minimum="0" Maximum="400" Visibility="{x:Bind IsIntervals, Mode=OneWay}" />
+                            <TextBox Header="Off" Text="{x:Bind OffDuration, Mode=TwoWay}" Width="80" Visibility="{x:Bind IsIntervals, Mode=OneWay}" />
+                            <NumberBox Header="Off %" Value="{x:Bind OffPower, Mode=TwoWay}" Width="80" Minimum="0" Maximum="400" Visibility="{x:Bind IsIntervals, Mode=OneWay}" />
+                            <StackPanel VerticalAlignment="Bottom" Margin="4,0,0,6">
+                                <TextBlock Text="WATTS" FontSize="10" CharacterSpacing="80" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                <TextBlock Text="{x:Bind WattsText, Mode=OneWay}" Foreground="{ThemeResource KineticChartPowerBrush}" FontSize="16" />
+                            </StackPanel>
+                        </StackPanel>
+                        <NumberBox Grid.Column="2" Header="Cadence" Value="{x:Bind Cadence, Mode=TwoWay}" PlaceholderText="any" Minimum="0" Maximum="200" />
+                        <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                            <Button Content="▲" Click="OnMoveUp" Tag="{x:Bind}" Padding="8,4" ToolTipService.ToolTip="Move up" />
+                            <Button Content="▼" Click="OnMoveDown" Tag="{x:Bind}" Padding="8,4" ToolTipService.ToolTip="Move down" />
+                            <Button Content="✕" Click="OnRemove" Tag="{x:Bind}" Padding="8,4" ToolTipService.ToolTip="Remove" Foreground="{ThemeResource KineticDangerBrush}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock Grid.Row="5" Foreground="{ThemeResource KineticTextSecondaryBrush}" TextWrapping="Wrap"
+                   Text="Saved workouts belong to the current rider and can be exported as Zwift .zwo files. Messages from imported files are kept when you edit." />
+    </Grid>
+</Page>

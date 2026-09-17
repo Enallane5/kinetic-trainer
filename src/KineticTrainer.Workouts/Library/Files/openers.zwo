@@ -1,0 +1,22 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Openers</name>
+    <description>A short pre-race session that wakes the legs up without adding fatigue: two 3-minute efforts at 110% FTP and three 10-second sprints. Shift and raise cadence to hit the targets; the 250% sprint target is nominal, so go all-out.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="720" PowerLow="0.45" PowerHigh="0.70"/>
+        <IntervalsT Repeat="2" OnDuration="180" OffDuration="180" OnPower="1.10" OffPower="0.50">
+            <textevent timeoffset="0" message="Effort 1 of 2: 3 min at 110% FTP"/>
+            <textevent timeoffset="360" message="Effort 2 of 2: 3 min at 110% FTP"/>
+        </IntervalsT>
+        <IntervalsT Repeat="3" OnDuration="10" OffDuration="110" OnPower="2.50" OffPower="0.50">
+            <textevent timeoffset="0" message="Sprint 1 of 3: MAX for 10 s"/>
+            <textevent timeoffset="120" message="Sprint 2 of 3: MAX for 10 s"/>
+            <textevent timeoffset="240" message="Sprint 3 of 3: MAX for 10 s"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

@@ -1,0 +1,41 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Pyramid 1-2-3-4-3-2-1</name>
+    <description>A pyramid of 1-2-3-4-3-2-1 minute efforts, from 120% down to 105% FTP and back, with recovery equal to each effort. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <SteadyState Duration="60" Power="1.20">
+            <textevent timeoffset="0" message="Step 1 of 7: 1 min at 120% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <SteadyState Duration="120" Power="1.15">
+            <textevent timeoffset="0" message="Step 2 of 7: 2 min at 115% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="120" Power="0.50"/>
+        <SteadyState Duration="180" Power="1.10">
+            <textevent timeoffset="0" message="Step 3 of 7: 3 min at 110% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="180" Power="0.50"/>
+        <SteadyState Duration="240" Power="1.05">
+            <textevent timeoffset="0" message="Step 4 of 7: 4 min at 105% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="240" Power="0.50"/>
+        <SteadyState Duration="180" Power="1.10">
+            <textevent timeoffset="0" message="Step 5 of 7: 3 min at 110% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="180" Power="0.50"/>
+        <SteadyState Duration="120" Power="1.15">
+            <textevent timeoffset="0" message="Step 6 of 7: 2 min at 115% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="120" Power="0.50"/>
+        <SteadyState Duration="60" Power="1.20">
+            <textevent timeoffset="0" message="Step 7 of 7: 1 min at 120% FTP"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.50"/>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

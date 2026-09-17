@@ -1,0 +1,52 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>FTP Test - Ramp</name>
+    <description>Ramp FTP test: a 5-minute warm-up, then 1-minute steps that rise by 6% of FTP until you can no longer hold the target (FTP = 75% of your best 1-minute power). Shift up at each step to match the target and ride until failure.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Test"/>
+        <tag name="FTP Test Ramp"/>
+    </tags>
+    <workout>
+        <SteadyState Duration="300" Power="0.46">
+            <textevent timeoffset="0" message="Ramp test: 5-minute easy warm-up"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.52">
+            <textevent timeoffset="0" message="RAMP TEST: the target rises 6% FTP every minute. Ride until failure: keep shifting to match the target until you cannot hold it, then stop"/>
+            <textevent timeoffset="30" message="Stay seated and keep matching the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.58"/>
+        <SteadyState Duration="60" Power="0.64"/>
+        <SteadyState Duration="60" Power="0.70">
+            <textevent timeoffset="0" message="Step 4: 70% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.76"/>
+        <SteadyState Duration="60" Power="0.82"/>
+        <SteadyState Duration="60" Power="0.88">
+            <textevent timeoffset="0" message="Step 7: 88% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="0.94"/>
+        <SteadyState Duration="60" Power="1.00"/>
+        <SteadyState Duration="60" Power="1.06">
+            <textevent timeoffset="0" message="Step 10: 106% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="1.12"/>
+        <SteadyState Duration="60" Power="1.18"/>
+        <SteadyState Duration="60" Power="1.24">
+            <textevent timeoffset="0" message="Step 13: 124% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="1.30"/>
+        <SteadyState Duration="60" Power="1.36"/>
+        <SteadyState Duration="60" Power="1.42">
+            <textevent timeoffset="0" message="Step 16: 142% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <SteadyState Duration="60" Power="1.48"/>
+        <SteadyState Duration="60" Power="1.54"/>
+        <SteadyState Duration="60" Power="1.60">
+            <textevent timeoffset="0" message="Step 19: 160% FTP. Keep going until you can no longer hold the target"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.30">
+            <textevent timeoffset="0" message="Test over: spin easy. FTP = 75% of your best 1-minute power"/>
+        </Cooldown>
+    </workout>
+</workout_file>

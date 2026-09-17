@@ -1,0 +1,37 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>30/15 Intervals</name>
+    <description>Three series of 13 x 30 seconds hard (118% FTP) with 15-second recoveries for short-interval VO2 max work. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="VO2 Max"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="13" OnDuration="30" OffDuration="15" OnPower="1.18" OffPower="0.50">
+            <textevent timeoffset="0" message="Set 1 of 3: 13 x 30 s at 118% FTP / 15 s easy"/>
+            <textevent timeoffset="270" message="Rep 7 of 13: halfway"/>
+            <textevent timeoffset="540" message="Rep 13 of 13: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="180" Power="0.50">
+            <textevent timeoffset="0" message="Recover 3 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="13" OnDuration="30" OffDuration="15" OnPower="1.18" OffPower="0.50">
+            <textevent timeoffset="0" message="Set 2 of 3: 13 x 30 s at 118% FTP / 15 s easy"/>
+            <textevent timeoffset="270" message="Rep 7 of 13: halfway"/>
+            <textevent timeoffset="540" message="Rep 13 of 13: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="180" Power="0.50">
+            <textevent timeoffset="0" message="Recover 3 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="13" OnDuration="30" OffDuration="15" OnPower="1.18" OffPower="0.50">
+            <textevent timeoffset="0" message="Set 3 of 3: 13 x 30 s at 118% FTP / 15 s easy"/>
+            <textevent timeoffset="270" message="Rep 7 of 13: halfway"/>
+            <textevent timeoffset="540" message="Rep 13 of 13: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="180" Power="0.50">
+            <textevent timeoffset="0" message="Recover 3 minutes"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

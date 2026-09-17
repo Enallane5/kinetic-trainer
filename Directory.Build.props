@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <Company>Ashby's Cabinetry (personal use)</Company>
+    <Product>Kinetic Trainer</Product>
+    <Version>0.2.0</Version>
+    <!-- Offline app: no telemetry of any kind. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Shared Windows target for projects that use WinRT Bluetooth APIs. -->
+    <KtWindowsTfm>net10.0-windows10.0.19041.0</KtWindowsTfm>
+    <KtMinWindows>10.0.17763.0</KtMinWindows>
+  </PropertyGroup>
+</Project>

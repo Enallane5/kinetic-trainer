@@ -1,0 +1,37 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Over-Unders 3x12</name>
+    <description>Three 12-minute sets alternating 2 minutes at 95% FTP and 2 minutes at 105% FTP to practise riding just below and above threshold. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Threshold"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="3" OnDuration="120" OffDuration="120" OnPower="0.95" OffPower="1.05">
+            <textevent timeoffset="0" message="Set 1 of 3: UNDER at 95% FTP for 2 minutes"/>
+            <textevent timeoffset="120" message="OVER: shift up to 105% FTP"/>
+            <textevent timeoffset="480" message="Last under-over pair of set 1"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.55">
+            <textevent timeoffset="0" message="Recover: easy gear"/>
+        </SteadyState>
+        <IntervalsT Repeat="3" OnDuration="120" OffDuration="120" OnPower="0.95" OffPower="1.05">
+            <textevent timeoffset="0" message="Set 2 of 3: UNDER at 95% FTP for 2 minutes"/>
+            <textevent timeoffset="120" message="OVER: shift up to 105% FTP"/>
+            <textevent timeoffset="480" message="Last under-over pair of set 2"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.55">
+            <textevent timeoffset="0" message="Recover: easy gear"/>
+        </SteadyState>
+        <IntervalsT Repeat="3" OnDuration="120" OffDuration="120" OnPower="0.95" OffPower="1.05">
+            <textevent timeoffset="0" message="Set 3 of 3: UNDER at 95% FTP for 2 minutes"/>
+            <textevent timeoffset="120" message="OVER: shift up to 105% FTP"/>
+            <textevent timeoffset="480" message="Last under-over pair of set 3"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.55">
+            <textevent timeoffset="0" message="Recover: easy gear"/>
+        </SteadyState>
+        <Cooldown Duration="300" PowerLow="0.55" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

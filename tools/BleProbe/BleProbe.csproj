@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Diagnostic console tool: dumps everything a BLE peripheral exposes. Not shipped with the app. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>$(KtWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(KtMinWindows)</TargetPlatformMinVersion>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

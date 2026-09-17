@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(KtWindowsTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(KtMinWindows)</TargetPlatformMinVersion>
+    <RootNamespace>KineticTrainer.App</RootNamespace>
+    <AssemblyName>KineticTrainer</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <UseWinUI>true</UseWinUI>
+    <!-- Unpackaged, self-contained: one folder with KineticTrainer.exe that needs no .NET or Windows App SDK install. -->
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>true</SelfContained>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <PublishTrimmed>false</PublishTrimmed>
+    <EnableMsixTooling>false</EnableMsixTooling>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- MVVMTK0045 is about AOT/trimming, which this app does not use. -->
+    <NoWarn>$(NoWarn);MVVMTK0045</NoWarn>
+    <ApplicationIcon>Assets\kinetic-trainer.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260804001" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Protocol\KineticTrainer.Protocol.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Bluetooth\KineticTrainer.Bluetooth.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Bluetooth.WinRt\KineticTrainer.Bluetooth.WinRt.csproj" />
+    <ProjectReference Include="..\KineticTrainer.SimulatorBridge\KineticTrainer.SimulatorBridge.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Recording\KineticTrainer.Recording.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Persistence\KineticTrainer.Persistence.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Workouts\KineticTrainer.Workouts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Manifest Include="$(ApplicationManifest)" />
+    <Content Include="Assets\**" />
+  </ItemGroup>
+
+  <!--
+    dotnet publish (self-contained, unpackaged) leaves the WinUI resource index files (*.pri) in the build output
+    but does not copy them to the publish folder; without them XAML resource lookup fails at start-up.
+  -->
+  <Target Name="KtCopyPriToPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <KtPriFiles Include="$(OutDir)*.pri" />
+    </ItemGroup>
+    <Error Condition="'@(KtPriFiles)' == ''" Text="No *.pri files found in $(OutDir); the published app would not start." />
+    <Copy SourceFiles="@(KtPriFiles)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" />
+    <Message Importance="high" Text="Copied @(KtPriFiles->Count()) .pri file(s) to $(PublishDir)" />
+  </Target>
+</Project>

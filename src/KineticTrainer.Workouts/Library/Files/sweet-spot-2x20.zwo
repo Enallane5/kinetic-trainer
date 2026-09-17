@@ -1,0 +1,19 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Sweet Spot 2x20</name>
+    <description>The classic FTP builder: two 20-minute efforts at 90% FTP with a 5-minute recovery. On a fluid trainer, shift gears and adjust cadence to bring your power up to each target.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Sweet Spot"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.75"/>
+        <IntervalsT Repeat="2" OnDuration="1200" OffDuration="300" OnPower="0.90" OffPower="0.55">
+            <textevent timeoffset="0" message="Interval 1 of 2: settle in at 90% FTP"/>
+            <textevent timeoffset="600" message="Interval 1: halfway"/>
+            <textevent timeoffset="1500" message="Interval 2 of 2: settle in at 90% FTP"/>
+            <textevent timeoffset="2100" message="Interval 2: halfway"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.55" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

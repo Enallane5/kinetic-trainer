@@ -1,0 +1,26 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Tabata-Style 20/10</name>
+    <description>Two sets of 8 x 20 seconds very hard (160% FTP) with 10 seconds easy, for anaerobic capacity. Shift to a big gear and spin up hard for each 20 s, then keep pedalling lightly through the 10 s rests.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Anaerobic"/>
+    </tags>
+    <workout>
+        <Warmup Duration="720" PowerLow="0.45" PowerHigh="0.80"/>
+        <IntervalsT Repeat="8" OnDuration="20" OffDuration="10" OnPower="1.60" OffPower="0.40">
+            <textevent timeoffset="0" message="Set 1 of 2: 8 x 20 s very hard / 10 s easy"/>
+            <textevent timeoffset="90" message="Rep 4 of 8"/>
+            <textevent timeoffset="210" message="Rep 8 of 8: last one"/>
+        </IntervalsT>
+        <SteadyState Duration="600" Power="0.50">
+            <textevent timeoffset="0" message="Recover 10 minutes"/>
+        </SteadyState>
+        <IntervalsT Repeat="8" OnDuration="20" OffDuration="10" OnPower="1.60" OffPower="0.40">
+            <textevent timeoffset="0" message="Set 2 of 2: 8 x 20 s very hard / 10 s easy"/>
+            <textevent timeoffset="90" message="Rep 4 of 8"/>
+            <textevent timeoffset="210" message="Rep 8 of 8: last one"/>
+        </IntervalsT>
+        <Cooldown Duration="600" PowerLow="0.55" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

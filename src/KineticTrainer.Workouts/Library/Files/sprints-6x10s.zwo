@@ -1,0 +1,24 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>Neuromuscular Sprints 6x10s</name>
+    <description>Six 10-second all-out sprints with nearly 5 minutes of easy spinning between them to build peak power. The 250% target is nominal: shift into a big gear, sprint all-out, then spin easy to recover fully.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Sprint"/>
+    </tags>
+    <workout>
+        <Warmup Duration="600" PowerLow="0.45" PowerHigh="0.70"/>
+        <SteadyState Duration="300" Power="0.70">
+            <textevent timeoffset="0" message="Steady 5 minutes before the first sprint"/>
+        </SteadyState>
+        <IntervalsT Repeat="6" OnDuration="10" OffDuration="290" OnPower="2.50" OffPower="0.50">
+            <textevent timeoffset="0" message="Sprint 1 of 6: MAX effort for 10 s"/>
+            <textevent timeoffset="300" message="Sprint 2 of 6: MAX effort for 10 s"/>
+            <textevent timeoffset="600" message="Sprint 3 of 6: MAX effort for 10 s"/>
+            <textevent timeoffset="900" message="Sprint 4 of 6: MAX effort for 10 s"/>
+            <textevent timeoffset="1200" message="Sprint 5 of 6: MAX effort for 10 s"/>
+            <textevent timeoffset="1500" message="Sprint 6 of 6: MAX effort for 10 s"/>
+        </IntervalsT>
+        <Cooldown Duration="300" PowerLow="0.50" PowerHigh="0.40"/>
+    </workout>
+</workout_file>

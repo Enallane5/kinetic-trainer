@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- KineticTheme.xaml - merge in App.xaml:
+     <Application ... RequestedTheme="Dark">
+       <Application.Resources>
+         <ResourceDictionary>
+           <ResourceDictionary.MergedDictionaries>
+             <XamlControlsResources />
+             <ResourceDictionary Source="ms-appx:///Styles/KineticTheme.xaml" />
+           </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+       </Application.Resources>
+     </Application>
+     Token sources: Android Kinetic Fit v1.4.23 res/values/colors.xml + styles.xml (KineticTheme / KineticTheme.Light);
+     'derived' values are documented in the design-system token list. -->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+
+        <!-- ================================ DARK (default) ================================ -->
+        <ResourceDictionary x:Key="Default">
+            <!-- Surfaces -->
+            <Color x:Key="KineticBackgroundColor">#FF181818</Color>
+            <Color x:Key="KineticSurfaceColor">#FF0D0D0D</Color>
+            <Color x:Key="KineticSurfaceElevatedColor">#FF262626</Color>
+            <Color x:Key="KineticOverlayColor">#AA0D0D0D</Color>
+            <Color x:Key="KineticBorderColor">#FF000000</Color>
+            <Color x:Key="KineticBorderSubtleColor">#FF2E2E2E</Color>
+            <!-- Text -->
+            <Color x:Key="KineticTextPrimaryColor">#FFFFFFFF</Color>
+            <Color x:Key="KineticTextSecondaryColor">#FFABABAB</Color>
+            <Color x:Key="KineticTextOnAccentColor">#FF000000</Color>
+            <!-- Accent (single brand green) -->
+            <Color x:Key="KineticAccentColor">#FF78C957</Color>
+            <Color x:Key="KineticAccentHoverColor">#FF86D266</Color>
+            <Color x:Key="KineticAccentPressedColor">#FF62A547</Color>
+            <Color x:Key="KineticAccentSubtleColor">#1F78C957</Color>
+            <!-- Semantic -->
+            <Color x:Key="KineticSuccessColor">#FF78C957</Color>
+            <Color x:Key="KineticWarningColor">#FFFCD16B</Color>
+            <Color x:Key="KineticDangerColor">#FFFF8C8F</Color>
+            <Color x:Key="KineticInfoColor">#FF68A8C8</Color>
+            <!-- Metric / chart -->
+            <Color x:Key="KineticChartPowerColor">#FFE5DB96</Color>
+            <Color x:Key="KineticChartHeartColor">#FFEDB87D</Color>
+            <Color x:Key="KineticChartCadenceColor">#FF99C2BF</Color>
+            <Color x:Key="KineticChartSpeedColor">#FF99C2BF</Color>
+            <Color x:Key="KineticChartCursorColor">#FFABABAB</Color>
+            <Color x:Key="KineticChartProfileTopColor">#FF78C957</Color>
+            <Color x:Key="KineticChartProfileIdleTopColor">#FFFFFFFF</Color>
+            <Color x:Key="KineticHrZoneBarColor">#FFC8A070</Color>
+            <!-- Power zones Z1..Z7 -->
+            <Color x:Key="KineticZoneZ1Color">#FF8E8E8E</Color>
+            <Color x:Key="KineticZoneZ2Color">#FF4D9BE6</Color>
+            <Color x:Key="KineticZoneZ3Color">#FF78C957</Color>
+            <Color x:Key="KineticZoneZ4Color">#FFF2D22E</Color>
+            <Color x:Key="KineticZoneZ5Color">#FFF5963C</Color>
+            <Color x:Key="KineticZoneZ6Color">#FFE5473F</Color>
+            <Color x:Key="KineticZoneZ7Color">#FFC65CD8</Color>
+
+            <!-- Brushes -->
+            <SolidColorBrush x:Key="KineticBackgroundBrush" Color="{StaticResource KineticBackgroundColor}" />
+            <SolidColorBrush x:Key="KineticSurfaceBrush" Color="{StaticResource KineticSurfaceColor}" />
+            <SolidColorBrush x:Key="KineticSurfaceElevatedBrush" Color="{StaticResource KineticSurfaceElevatedColor}" />
+            <SolidColorBrush x:Key="KineticOverlayBrush" Color="{StaticResource KineticOverlayColor}" />
+            <SolidColorBrush x:Key="KineticBorderBrush" Color="{StaticResource KineticBorderColor}" />
+            <SolidColorBrush x:Key="KineticBorderSubtleBrush" Color="{StaticResource KineticBorderSubtleColor}" />
+            <SolidColorBrush x:Key="KineticTextPrimaryBrush" Color="{StaticResource KineticTextPrimaryColor}" />
+            <SolidColorBrush x:Key="KineticTextSecondaryBrush" Color="{StaticResource KineticTextSecondaryColor}" />
+            <SolidColorBrush x:Key="KineticTextOnAccentBrush" Color="{StaticResource KineticTextOnAccentColor}" />
+            <SolidColorBrush x:Key="KineticAccentBrush" Color="{StaticResource KineticAccentColor}" />
+            <SolidColorBrush x:Key="KineticAccentHoverBrush" Color="{StaticResource KineticAccentHoverColor}" />
+            <SolidColorBrush x:Key="KineticAccentPressedBrush" Color="{StaticResource KineticAccentPressedColor}" />
+            <SolidColorBrush x:Key="KineticAccentSubtleBrush" Color="{StaticResource KineticAccentSubtleColor}" />
+            <SolidColorBrush x:Key="KineticSuccessBrush" Color="{StaticResource KineticSuccessColor}" />
+            <SolidColorBrush x:Key="KineticWarningBrush" Color="{StaticResource KineticWarningColor}" />
+            <SolidColorBrush x:Key="KineticDangerBrush" Color="{StaticResource KineticDangerColor}" />
+            <SolidColorBrush x:Key="KineticInfoBrush" Color="{StaticResource KineticInfoColor}" />
+            <SolidColorBrush x:Key="KineticChartPowerBrush" Color="{StaticResource KineticChartPowerColor}" />
+            <SolidColorBrush x:Key="KineticChartHeartBrush" Color="{StaticResource KineticChartHeartColor}" />
+            <SolidColorBrush x:Key="KineticChartCadenceBrush" Color="{StaticResource KineticChartCadenceColor}" />
+            <SolidColorBrush x:Key="KineticChartSpeedBrush" Color="{StaticResource KineticChartSpeedColor}" />
+            <SolidColorBrush x:Key="KineticChartCursorBrush" Color="{StaticResource KineticChartCursorColor}" />
+            <SolidColorBrush x:Key="KineticHrZoneBarBrush" Color="{StaticResource KineticHrZoneBarColor}" />
+            <SolidColorBrush x:Key="KineticZoneZ1Brush" Color="{StaticResource KineticZoneZ1Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ2Brush" Color="{StaticResource KineticZoneZ2Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ3Brush" Color="{StaticResource KineticZoneZ3Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ4Brush" Color="{StaticResource KineticZoneZ4Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ5Brush" Color="{StaticResource KineticZoneZ5Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ6Brush" Color="{StaticResource KineticZoneZ6Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ7Brush" Color="{StaticResource KineticZoneZ7Color}" />
+
+            <!-- Workout profile fill: Kinetic's WorkoutGraphView gradient (outline colour at ~10% -> Surface at bottom) -->
+            <LinearGradientBrush x:Key="KineticProfileActiveFillBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{StaticResource KineticChartProfileTopColor}" Offset="0.1" />
+                <GradientStop Color="{StaticResource KineticSurfaceColor}" Offset="1.0" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="KineticProfileIdleFillBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{StaticResource KineticChartProfileIdleTopColor}" Offset="0.1" />
+                <GradientStop Color="{StaticResource KineticSurfaceColor}" Offset="1.0" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+
+        <!-- ================================ LIGHT ================================ -->
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="KineticBackgroundColor">#FFF6F6F6</Color>
+            <Color x:Key="KineticSurfaceColor">#FFFFFFFF</Color>
+            <Color x:Key="KineticSurfaceElevatedColor">#FFE9E9E9</Color>
+            <Color x:Key="KineticOverlayColor">#AAF6F6F6</Color>
+            <Color x:Key="KineticBorderColor">#FF888888</Color>
+            <Color x:Key="KineticBorderSubtleColor">#FFD7D7D7</Color>
+            <Color x:Key="KineticTextPrimaryColor">#FF000000</Color>
+            <Color x:Key="KineticTextSecondaryColor">#FF666666</Color>
+            <Color x:Key="KineticTextOnAccentColor">#FF000000</Color>
+            <Color x:Key="KineticAccentColor">#FF63C13E</Color>
+            <Color x:Key="KineticAccentHoverColor">#FF71CC4D</Color>
+            <Color x:Key="KineticAccentPressedColor">#FF4F9C31</Color>
+            <Color x:Key="KineticAccentSubtleColor">#2663C13E</Color>
+            <Color x:Key="KineticSuccessColor">#FF63C13E</Color>
+            <Color x:Key="KineticWarningColor">#FFEBC944</Color>
+            <Color x:Key="KineticDangerColor">#FF9A2617</Color>
+            <Color x:Key="KineticInfoColor">#FF1F6F8F</Color>
+            <Color x:Key="KineticChartPowerColor">#FFA39329</Color>
+            <Color x:Key="KineticChartHeartColor">#FFC2571A</Color>
+            <Color x:Key="KineticChartCadenceColor">#FF107896</Color>
+            <Color x:Key="KineticChartSpeedColor">#FF093145</Color>
+            <Color x:Key="KineticChartCursorColor">#FF666666</Color>
+            <Color x:Key="KineticChartProfileTopColor">#FF63C13E</Color>
+            <Color x:Key="KineticChartProfileIdleTopColor">#FF666666</Color>
+            <Color x:Key="KineticHrZoneBarColor">#FFB5824A</Color>
+            <Color x:Key="KineticZoneZ1Color">#FF7A7A7A</Color>
+            <Color x:Key="KineticZoneZ2Color">#FF2A6FBF</Color>
+            <Color x:Key="KineticZoneZ3Color">#FF63C13E</Color>
+            <Color x:Key="KineticZoneZ4Color">#FFD4B400</Color>
+            <Color x:Key="KineticZoneZ5Color">#FFE07A1A</Color>
+            <Color x:Key="KineticZoneZ6Color">#FFC62D26</Color>
+            <Color x:Key="KineticZoneZ7Color">#FF9F3FB3</Color>
+
+            <SolidColorBrush x:Key="KineticBackgroundBrush" Color="{StaticResource KineticBackgroundColor}" />
+            <SolidColorBrush x:Key="KineticSurfaceBrush" Color="{StaticResource KineticSurfaceColor}" />
+            <SolidColorBrush x:Key="KineticSurfaceElevatedBrush" Color="{StaticResource KineticSurfaceElevatedColor}" />
+            <SolidColorBrush x:Key="KineticOverlayBrush" Color="{StaticResource KineticOverlayColor}" />
+            <SolidColorBrush x:Key="KineticBorderBrush" Color="{StaticResource KineticBorderColor}" />
+            <SolidColorBrush x:Key="KineticBorderSubtleBrush" Color="{StaticResource KineticBorderSubtleColor}" />
+            <SolidColorBrush x:Key="KineticTextPrimaryBrush" Color="{StaticResource KineticTextPrimaryColor}" />
+            <SolidColorBrush x:Key="KineticTextSecondaryBrush" Color="{StaticResource KineticTextSecondaryColor}" />
+            <SolidColorBrush x:Key="KineticTextOnAccentBrush" Color="{StaticResource KineticTextOnAccentColor}" />
+            <SolidColorBrush x:Key="KineticAccentBrush" Color="{StaticResource KineticAccentColor}" />
+            <SolidColorBrush x:Key="KineticAccentHoverBrush" Color="{StaticResource KineticAccentHoverColor}" />
+            <SolidColorBrush x:Key="KineticAccentPressedBrush" Color="{StaticResource KineticAccentPressedColor}" />
+            <SolidColorBrush x:Key="KineticAccentSubtleBrush" Color="{StaticResource KineticAccentSubtleColor}" />
+            <SolidColorBrush x:Key="KineticSuccessBrush" Color="{StaticResource KineticSuccessColor}" />
+            <SolidColorBrush x:Key="KineticWarningBrush" Color="{StaticResource KineticWarningColor}" />
+            <SolidColorBrush x:Key="KineticDangerBrush" Color="{StaticResource KineticDangerColor}" />
+            <SolidColorBrush x:Key="KineticInfoBrush" Color="{StaticResource KineticInfoColor}" />
+            <SolidColorBrush x:Key="KineticChartPowerBrush" Color="{StaticResource KineticChartPowerColor}" />
+            <SolidColorBrush x:Key="KineticChartHeartBrush" Color="{StaticResource KineticChartHeartColor}" />
+            <SolidColorBrush x:Key="KineticChartCadenceBrush" Color="{StaticResource KineticChartCadenceColor}" />
+            <SolidColorBrush x:Key="KineticChartSpeedBrush" Color="{StaticResource KineticChartSpeedColor}" />
+            <SolidColorBrush x:Key="KineticChartCursorBrush" Color="{StaticResource KineticChartCursorColor}" />
+            <SolidColorBrush x:Key="KineticHrZoneBarBrush" Color="{StaticResource KineticHrZoneBarColor}" />
+            <SolidColorBrush x:Key="KineticZoneZ1Brush" Color="{StaticResource KineticZoneZ1Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ2Brush" Color="{StaticResource KineticZoneZ2Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ3Brush" Color="{StaticResource KineticZoneZ3Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ4Brush" Color="{StaticResource KineticZoneZ4Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ5Brush" Color="{StaticResource KineticZoneZ5Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ6Brush" Color="{StaticResource KineticZoneZ6Color}" />
+            <SolidColorBrush x:Key="KineticZoneZ7Brush" Color="{StaticResource KineticZoneZ7Color}" />
+
+            <LinearGradientBrush x:Key="KineticProfileActiveFillBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{StaticResource KineticChartProfileTopColor}" Offset="0.1" />
+                <GradientStop Color="{StaticResource KineticSurfaceColor}" Offset="1.0" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="KineticProfileIdleFillBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{StaticResource KineticChartProfileIdleTopColor}" Offset="0.1" />
+                <GradientStop Color="{StaticResource KineticSurfaceColor}" Offset="1.0" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!-- ================================ Theme-independent ================================ -->
+    <FontFamily x:Key="KineticDisplayFontFamily">Segoe UI Variable Display, Segoe UI</FontFamily>
+    <FontFamily x:Key="KineticTextFontFamily">Segoe UI Variable Text, Segoe UI</FontFamily>
+
+    <x:Double x:Key="KineticHeroFontSize">128</x:Double>
+    <x:Double x:Key="KineticHeroUnitFontSize">32</x:Double>
+    <x:Double x:Key="KineticTimerFontSize">72</x:Double>
+    <x:Double x:Key="KineticTileFontSize">56</x:Double>
+    <x:Double x:Key="KineticTargetFontSize">40</x:Double>
+    <x:Double x:Key="KineticDialogNumberFontSize">96</x:Double>
+    <x:Double x:Key="KineticDialogHeadlineFontSize">28</x:Double>
+    <x:Double x:Key="KineticStatFontSize">24</x:Double>
+    <x:Double x:Key="KineticLabelFontSize">14</x:Double>
+    <x:Double x:Key="KineticCaptionFontSize">12</x:Double>
+    <x:Int32 x:Key="KineticLabelCharacterSpacing">80</x:Int32>
+    <CornerRadius x:Key="KineticCornerRadius">0</CornerRadius>
+    <Thickness x:Key="KineticTileMargin">4</Thickness>
+
+    <!-- Numeric readouts: tabular lining figures so digits never jitter -->
+    <Style x:Key="KineticHeroNumberStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource KineticDisplayFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource KineticHeroFontSize}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticTextPrimaryBrush}" />
+        <Setter Property="Typography.NumeralAlignment" Value="Tabular" />
+        <Setter Property="Typography.NumeralStyle" Value="Lining" />
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+        <Setter Property="LineHeight" Value="128" />
+    </Style>
+
+    <Style x:Key="KineticTileNumberStyle" TargetType="TextBlock" BasedOn="{StaticResource KineticHeroNumberStyle}">
+        <Setter Property="FontSize" Value="{StaticResource KineticTileFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="LineHeight" Value="56" />
+    </Style>
+
+    <Style x:Key="KineticTimerStyle" TargetType="TextBlock" BasedOn="{StaticResource KineticHeroNumberStyle}">
+        <Setter Property="FontSize" Value="{StaticResource KineticTimerFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticAccentBrush}" />
+        <Setter Property="LineHeight" Value="72" />
+    </Style>
+
+    <Style x:Key="KineticLabelStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource KineticTextFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource KineticLabelFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="CharacterSpacing" Value="{StaticResource KineticLabelCharacterSpacing}" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticTextSecondaryBrush}" />
+    </Style>
+
+    <!-- Primary button: solid green, black text, square corners -->
+    <Style x:Key="KineticPrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="Background" Value="{ThemeResource KineticAccentBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticTextOnAccentBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource KineticAccentBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{StaticResource KineticCornerRadius}" />
+        <Setter Property="FontFamily" Value="{StaticResource KineticTextFontFamily}" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CharacterSpacing" Value="100" />
+        <Setter Property="Padding" Value="24,10" />
+        <Setter Property="MinHeight" Value="44" />
+    </Style>
+
+    <!-- Secondary button: 1px green outline, green text, transparent -->
+    <Style x:Key="KineticOutlineButtonStyle" TargetType="Button" BasedOn="{StaticResource KineticPrimaryButtonStyle}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticAccentBrush}" />
+    </Style>
+
+    <!-- Destructive: red outline (Kinetic 'Disconnect') -->
+    <Style x:Key="KineticDangerButtonStyle" TargetType="Button" BasedOn="{StaticResource KineticOutlineButtonStyle}">
+        <Setter Property="Foreground" Value="{ThemeResource KineticDangerBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource KineticDangerBrush}" />
+    </Style>
+
+    <!-- Data tile / card: darker than the page, square, 4px gutter -->
+    <Style x:Key="KineticTileStyle" TargetType="Border">
+        <Setter Property="Background" Value="{ThemeResource KineticSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource KineticBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{StaticResource KineticCornerRadius}" />
+        <Setter Property="Margin" Value="{StaticResource KineticTileMargin}" />
+        <Setter Property="Padding" Value="16,12" />
+    </Style>
+
+    <!-- Section header: small caps-style grey label ("SMART CONTROL SETTINGS" pattern) -->
+    <Style x:Key="KineticSectionHeaderStyle" TargetType="TextBlock" BasedOn="{StaticResource KineticLabelStyle}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Margin" Value="0,16,0,4" />
+    </Style>
+
+    <Style x:Key="KineticPageTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource KineticDisplayFontFamily}" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticTextPrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="KineticStatNumberStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource KineticDisplayFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource KineticStatFontSize}" />
+        <Setter Property="Foreground" Value="{ThemeResource KineticTextPrimaryBrush}" />
+        <Setter Property="Typography.NumeralAlignment" Value="Tabular" />
+    </Style>
+
+    <Style x:Key="KineticCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{ThemeResource KineticSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource KineticBorderSubtleBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Padding" Value="16" />
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,40 @@
+<workout_file>
+    <author>Kinetic Trainer</author>
+    <name>FTP Test - 20 Minute</name>
+    <description>Allen/Coggan 20-minute FTP test: warm-up, 3 fast-pedal minutes, a 5-minute hard effort and recovery, then a 20-minute time trial (FTP = 95% of its average power). The 100% target is only a guide: pick a gear and cadence that let you ride the hardest steady effort you can hold for all 20 minutes.</description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="Test"/>
+        <tag name="FTP Test 20 min"/>
+    </tags>
+    <workout>
+        <Warmup Duration="300" PowerLow="0.45" PowerHigh="0.60">
+            <textevent timeoffset="0" message="FTP test: 20-minute moderate warm-up"/>
+        </Warmup>
+        <SteadyState Duration="900" Power="0.62"/>
+        <IntervalsT Repeat="3" OnDuration="60" OffDuration="60" OnPower="0.70" OffPower="0.50" Cadence="100">
+            <textevent timeoffset="0" message="Fast pedalling 1 of 3: 1 min at 100 rpm"/>
+            <textevent timeoffset="120" message="Fast pedalling 2 of 3"/>
+            <textevent timeoffset="240" message="Fast pedalling 3 of 3"/>
+        </IntervalsT>
+        <SteadyState Duration="300" Power="0.60">
+            <textevent timeoffset="0" message="5 minutes easy endurance pace"/>
+        </SteadyState>
+        <SteadyState Duration="300" Power="1.05">
+            <textevent timeoffset="0" message="5 minutes HARD: hard at first, but not so hard that you cannot finish the effort"/>
+        </SteadyState>
+        <SteadyState Duration="600" Power="0.50">
+            <textevent timeoffset="0" message="10 minutes easy: recover before the test"/>
+        </SteadyState>
+        <SteadyState Duration="1200" Power="1.00">
+            <textevent timeoffset="0" message="FTP TEST EFFORT: ride as hard as you can sustain for 20 minutes"/>
+            <textevent timeoffset="300" message="15 minutes left: steady, do not surge"/>
+            <textevent timeoffset="600" message="Halfway: hold your pace"/>
+            <textevent timeoffset="900" message="5 minutes left: lift if you can"/>
+            <textevent timeoffset="1140" message="Last minute: empty the tank"/>
+        </SteadyState>
+        <Cooldown Duration="900" PowerLow="0.60" PowerHigh="0.40">
+            <textevent timeoffset="0" message="Test complete: cool down easy"/>
+        </Cooldown>
+    </workout>
+</workout_file>

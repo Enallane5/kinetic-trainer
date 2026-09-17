@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KineticTrainer.App.Views.RideDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:KineticTrainer.App.Controls"
+    xmlns:vm="using:KineticTrainer.App.ViewModels"
+    Background="{ThemeResource KineticBackgroundBrush}">
+
+    <ScrollViewer>
+        <StackPanel Padding="24,16" Spacing="12">
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Content="← History" Click="OnBackClick" Style="{StaticResource KineticOutlineButtonStyle}" VerticalAlignment="Top" />
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{StaticResource KineticPageTitleStyle}" Foreground="{ThemeResource KineticAccentBrush}" />
+                    <TextBlock Text="{x:Bind ViewModel.Subtitle, Mode=OneWay}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <TextBox PlaceholderText="Ride name" Text="{x:Bind ViewModel.EditableTitle, Mode=TwoWay}" Width="220" />
+                    <Button Content="Rename" Command="{x:Bind ViewModel.RenameCommand}" Style="{StaticResource KineticOutlineButtonStyle}" />
+                    <Button Content="Files" Command="{x:Bind ViewModel.ShowFilesCommand}" Style="{StaticResource KineticOutlineButtonStyle}" />
+                    <Button Content="Delete" Click="OnDeleteClick" Style="{StaticResource KineticDangerButtonStyle}" />
+                </StackPanel>
+            </Grid>
+            <TextBlock Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" Foreground="{ThemeResource KineticWarningBrush}" Visibility="{x:Bind c:Bind.VisibleIfText(ViewModel.StatusText), Mode=OneWay}" />
+
+            <Border Style="{StaticResource KineticCardStyle}">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Tiles}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" ItemWidth="150" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:SummaryTile">
+                            <StackPanel Margin="4,6">
+                                <TextBlock Text="{x:Bind Label}" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                                <TextBlock Style="{StaticResource KineticStatNumberStyle}" Foreground="{ThemeResource KineticInfoBrush}">
+                                    <Run Text="{x:Bind Value}" /><Run Text=" " /><Run Text="{x:Bind Unit}" FontSize="13" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+
+            <!-- Workout: plan with the ridden power over it, and compliance -->
+            <StackPanel Visibility="{x:Bind ViewModel.HasWorkout, Mode=OneWay}" Spacing="6">
+                <TextBlock Text="WORKOUT" Style="{StaticResource KineticSectionHeaderStyle}" />
+                <c:WorkoutProfileChart x:Name="WorkoutChart" Height="180"
+                                       Timeline="{x:Bind ViewModel.WorkoutTimeline, Mode=OneWay}"
+                                       Ftp="{x:Bind ViewModel.ChartFtp, Mode=OneWay}"
+                                       ColorByZone="{x:Bind ViewModel.ColorByZone, Mode=OneWay}" />
+                <TextBlock Text="Your power is drawn on the workout clock, so pauses and skipped steps line up with the plan." FontSize="12" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+            </StackPanel>
+            <StackPanel Visibility="{x:Bind ViewModel.HasCompliance, Mode=OneWay}" Spacing="4">
+                <TextBlock Text="{x:Bind ViewModel.ComplianceText, Mode=OneWay}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <Grid Padding="12,4" ColumnSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16" />
+                        <ColumnDefinition Width="260" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" Text="SEGMENT" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                    <TextBlock Grid.Column="2" Text="PLANNED" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                    <TextBlock Grid.Column="3" Text="TARGET" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                    <TextBlock Grid.Column="4" Text="ACTUAL" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                    <TextBlock Grid.Column="5" Text="ON TARGET" Style="{StaticResource KineticLabelStyle}" FontSize="11" />
+                </Grid>
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Compliance}" MaxHeight="320">
+                    <ItemsControl.Template>
+                        <ControlTemplate TargetType="ItemsControl">
+                            <ScrollViewer><ItemsPresenter /></ScrollViewer>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ComplianceRow">
+                            <Grid Padding="12,3" ColumnSpacing="12" Background="{ThemeResource KineticSurfaceBrush}" Margin="0,0,0,1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="16" />
+                                    <ColumnDefinition Width="260" />
+                                    <ColumnDefinition Width="140" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Width="10" Height="10" Fill="{x:Bind Brush}" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" Text="{x:Bind Label}" />
+                                <TextBlock Grid.Column="2" Text="{x:Bind Planned}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                <TextBlock Grid.Column="3" Text="{x:Bind Target}" Foreground="{ThemeResource KineticChartPowerBrush}" />
+                                <TextBlock Grid.Column="4" Text="{x:Bind Actual}" />
+                                <TextBlock Grid.Column="5" Text="{x:Bind OnTarget}" Foreground="{ThemeResource KineticAccentBrush}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <Grid ColumnSpacing="24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="POWER ZONES" Style="{StaticResource KineticSectionHeaderStyle}" />
+                    <TextBlock Text="{x:Bind ViewModel.ZonesNote, Mode=OneWay}" Foreground="{ThemeResource KineticTextSecondaryBrush}" TextWrapping="Wrap"
+                               Visibility="{x:Bind c:Bind.VisibleIfText(ViewModel.ZonesNote), Mode=OneWay}" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Zones}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:ZoneBar">
+                                <Grid ColumnSpacing="12" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="370" />
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Bind Label}" />
+                                    <Rectangle Grid.Column="1" Height="16" Width="{x:Bind BarWidth}" HorizontalAlignment="Left" Fill="{x:Bind Brush}" />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind TimeText}" />
+                                    <TextBlock Grid.Column="3" Text="{x:Bind PercentText}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                    <TextBlock Grid.Column="4" Text="{x:Bind RangeText}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                <StackPanel Grid.Column="1" MinWidth="260">
+                    <TextBlock Text="BEST EFFORTS" Style="{StaticResource KineticSectionHeaderStyle}" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Bests}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:BestRow">
+                                <Grid ColumnSpacing="12" Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Bind Duration}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                    <TextBlock Grid.Column="1" Text="{x:Bind Watts}" Foreground="{ThemeResource KineticChartPowerBrush}" />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind WattsPerKg}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+
+            <c:LineChart x:Name="PowerChart" Height="220" Title="POWER" Unit="W" />
+            <c:LineChart x:Name="CadenceChart" Height="160" Title="CADENCE" Unit="rpm" />
+            <c:LineChart x:Name="SpeedChart" Height="160" Title="SPEED" />
+            <TextBlock Text="{x:Bind ViewModel.FilesText, Mode=OneWay}" FontSize="12" Foreground="{ThemeResource KineticTextSecondaryBrush}" IsTextSelectionEnabled="True" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

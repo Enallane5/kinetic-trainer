@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Platform-independent sensor layer: transport abstractions, the connection/reconnection state machine,
+    the packet -> TrainerTelemetry pipeline and a simulated sensor for development without hardware.
+    The Windows BLE implementation lives in KineticTrainer.Bluetooth.WinRt so this project stays unit-testable.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KineticTrainer.Core\KineticTrainer.Core.csproj" />
+    <ProjectReference Include="..\KineticTrainer.Protocol\KineticTrainer.Protocol.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="KineticTrainer.Tests" />
+  </ItemGroup>
+</Project>

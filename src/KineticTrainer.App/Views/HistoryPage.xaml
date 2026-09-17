@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KineticTrainer.App.Views.HistoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:KineticTrainer.App.ViewModels"
+    NavigationCacheMode="Required"
+    Background="{ThemeResource KineticBackgroundBrush}">
+
+    <Grid Padding="24,16" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Style="{StaticResource KineticPageTitleStyle}">
+                    <Run Text="History" /><Run Text="  ·  " Foreground="{ThemeResource KineticTextSecondaryBrush}" /><Run Text="{x:Bind ViewModel.RiderName, Mode=OneWay}" Foreground="{ThemeResource KineticAccentBrush}" />
+                </TextBlock>
+                <TextBlock Text="{x:Bind ViewModel.TotalsText, Mode=OneWay}" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+                <TextBox PlaceholderText="Search" Text="{x:Bind ViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                <CheckBox Content="Show simulated" IsChecked="{x:Bind ViewModel.ShowSimulated, Mode=TwoWay}" />
+                <Button Content="Refresh" Command="{x:Bind ViewModel.RefreshCommand}" Style="{StaticResource KineticOutlineButtonStyle}" />
+                <ProgressRing IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" Width="20" Height="20" />
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" Foreground="{ThemeResource KineticTextSecondaryBrush}" TextWrapping="Wrap" />
+
+        <ListView Grid.Row="2" ItemsSource="{x:Bind ViewModel.Rides}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnItemClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="0,0,0,1" />
+                    <Setter Property="Background" Value="{ThemeResource KineticSurfaceBrush}" />
+                    <Setter Property="CornerRadius" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:RideRow">
+                    <Grid Padding="16,10" ColumnSpacing="24" MinHeight="72">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center" Spacing="2">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Text="{x:Bind DateText}" FontSize="12" CharacterSpacing="60" Foreground="{ThemeResource KineticTextSecondaryBrush}" />
+                                <Border Visibility="{x:Bind HasBadge}" BorderBrush="{ThemeResource KineticAccentBrush}" BorderThickness="1" Padding="6,0">
+                                    <TextBlock Text="{x:Bind Badge}" FontSize="10" Foreground="{ThemeResource KineticAccentBrush}" />
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind Title}" FontSize="17" FontWeight="SemiBold" />
+                            <StackPanel Orientation="Horizontal" Spacing="18">
+                                <TextBlock Foreground="{ThemeResource KineticTextSecondaryBrush}"><Run Text="⏱ " Foreground="{ThemeResource KineticAccentBrush}" /><Run Text="{x:Bind DurationText}" /></TextBlock>
+                                <TextBlock Foreground="{ThemeResource KineticTextSecondaryBrush}"><Run Text="▲ " Foreground="{ThemeResource KineticAccentBrush}" /><Run Text="{x:Bind DistanceText}" /></TextBlock>
+                                <TextBlock Foreground="{ThemeResource KineticTextSecondaryBrush}"><Run Text="ϟ " Foreground="{ThemeResource KineticAccentBrush}" /><Run Text="{x:Bind AvgPowerText}" /><Run Text="  " /><Run Text="{x:Bind NpText}" /></TextBlock>
+                                <TextBlock Foreground="{ThemeResource KineticTextSecondaryBrush}" Text="{x:Bind WorkText}" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="IF" FontSize="11" CharacterSpacing="80" Foreground="{ThemeResource KineticTextSecondaryBrush}" HorizontalAlignment="Center" />
+                            <TextBlock Text="{x:Bind IfText}" FontSize="24" Foreground="{ThemeResource KineticTextSecondaryBrush}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock Text="TSS" FontSize="11" CharacterSpacing="80" Foreground="{ThemeResource KineticTextSecondaryBrush}" HorizontalAlignment="Center" />
+                            <TextBlock Text="{x:Bind TssText}" FontSize="24" Foreground="{ThemeResource KineticTextSecondaryBrush}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                            <Button Content="Files" Click="OnFilesClick" Tag="{x:Bind}" Style="{StaticResource KineticOutlineButtonStyle}" Padding="12,6" MinHeight="32" />
+                            <Button Content="Delete" Click="OnDeleteClick" Tag="{x:Bind}" Style="{StaticResource KineticDangerButtonStyle}" Padding="12,6" MinHeight="32" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
