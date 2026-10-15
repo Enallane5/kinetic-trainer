@@ -72,6 +72,15 @@ public sealed partial class MainWindow : Window
         try
         {
             var area = Microsoft.UI.Windowing.DisplayArea.GetFromWindowId(AppWindow.Id, Microsoft.UI.Windowing.DisplayAreaFallback.Primary).WorkArea;
+            // Test aid: "--size 1100x620" opens at a fixed size to check the layout at small windows.
+            var args = Environment.GetCommandLineArgs();
+            var sizeIndex = Array.FindIndex(args, a => a.Equals("--size", StringComparison.OrdinalIgnoreCase));
+            if (sizeIndex >= 0 && sizeIndex + 1 < args.Length && args[sizeIndex + 1].Split('x') is [var ws, var hs]
+                && int.TryParse(ws, out var fixedW) && int.TryParse(hs, out var fixedH))
+            {
+                AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(area.X + 40, area.Y + 40, fixedW, fixedH));
+                return;
+            }
             var w = Math.Min(1400, (int)(area.Width * 0.96));
             var h = Math.Min(900, (int)(area.Height * 0.96));
             AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(area.X + ((area.Width - w) / 2), area.Y + ((area.Height - h) / 2), w, h));

@@ -17,9 +17,15 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 Copy-Item README.md, docs -Destination $out -Recurse -Force
 Copy-Item tools\bridge-client.py -Destination $out -Force
 
+# Compress-Archive is far too slow for a self-contained publish folder (thousands of files).
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+function New-Zip([string] $sourceDir, [string] $zipPath) {
+  if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
+  [System.IO.Compression.ZipFile]::CreateFromDirectory($sourceDir, $zipPath, [System.IO.Compression.CompressionLevel]::Optimal, $true)
+}
+
 $zip = Join-Path $PSScriptRoot 'dist\KineticTrainer-win-x64.zip'
-if (Test-Path $zip) { Remove-Item $zip -Force }
-Compress-Archive -Path $out -DestinationPath $zip
+New-Zip $out $zip
 Write-Host "`nFolder: $out"
 Write-Host "Zip:    $zip"
 
@@ -46,6 +52,5 @@ if (Test-Path $setup) { Copy-Item $setup -Destination $bundle }
 Copy-Item $out -Destination (Join-Path $bundle 'Portable') -Recurse
 Copy-Item (Join-Path $PSScriptRoot 'installer\READ ME FIRST.txt') -Destination $bundle
 $bundleZip = "$bundle.zip"
-if (Test-Path $bundleZip) { Remove-Item $bundleZip -Force }
-Compress-Archive -Path $bundle -DestinationPath $bundleZip
+New-Zip $bundle $bundleZip
 Write-Host "Bundle: $bundleZip"

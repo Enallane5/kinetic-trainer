@@ -1,4 +1,4 @@
-# Kinetic Trainer
+﻿# Kinetic Trainer
 
 Offline Windows desktop app for a Kurt Kinetic fluid trainer with an **inRide** Bluetooth sensor, built as a
 replacement for the discontinued Kinetic Fit app. It has no online accounts, no cloud, no analytics and needs no
@@ -18,10 +18,10 @@ See [docs/PROTOCOL.md](docs/PROTOCOL.md) and [docs/PHASE1-VALIDATION.md](docs/PH
   ramp (75 % of best minute) and 8-minute (90 %). Import Zwift `.zwo` files, build your own, export to `.zwo`.
   During a workout it shows interval time left, target, next step, on/under/over target, a zone-coloured profile
   with your power over it, interval pop-ups, and tones plus spoken cues. The voice says "watts" and can be switched
-  off with the **Voice** button on the Ride screen or in Settings. Intensity can be nudged ±5 %, and
+  off with the **Voice** button on the Ride screen or in Settings. Intensity can be nudged Â±5 %, and
   segments skipped or paused. Ramp tests end automatically when you can no longer hold the target.
 - **Riders**: several local profiles, each with name, FTP, weight, height, birth year, sex, heart rates, records
-  (max power, best 5 s … 60 min power, totals) and FTP history. An FTP test result can be saved to the profile.
+  (max power, best 5 s â€¦ 60 min power, totals) and FTP history. An FTP test result can be saved to the profile.
 - **History**: every ride is saved per rider with FIT and TCX files, NP, IF, TSS, time in zones, best efforts,
   workout compliance and charts. Rides can be renamed or deleted.
 - **Trends**: weekly/monthly time, distance and training load (TSS), plus fitness, fatigue and form.
@@ -32,7 +32,7 @@ the last feature, optional and off by default.
 
 ## Download
 
-Get **KineticTrainer-0.2.0-Windows.zip** from the [latest release](https://github.com/Enallane5/kinetic-trainer/releases/latest).
+Get **KineticTrainer-0.2.1-Windows.zip** from the [latest release](https://github.com/Enallane5/kinetic-trainer/releases/latest).
 It unzips to one folder with `KineticTrainer-Setup.exe`, a `Portable` copy that runs without installing, and
 `READ ME FIRST.txt`.
 
@@ -93,5 +93,5 @@ sensor packet or connection change:
 {"type":"telemetry","seq":42,"timestamp":1789500000000,"connection":"connected","valid":true,"power":210,"cadence":88.0,"speedMps":8.42,"rollerRpm":2978.2,"coasting":false,"simulated":false}
 ```
 
-`valid:false` lines carry no sensor values. `timestamp` is Unix milliseconds; `speedMps` is roller circumference ×
+`valid:false` lines carry no sensor values. `timestamp` is Unix milliseconds; `speedMps` is roller circumference Ã—
 roller rpm.

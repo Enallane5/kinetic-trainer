@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
@@ -7,7 +7,7 @@
     <Deterministic>true</Deterministic>
     <Company>Ashby's Cabinetry (personal use)</Company>
     <Product>Kinetic Trainer</Product>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <!-- Offline app: no telemetry of any kind. -->
     <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>

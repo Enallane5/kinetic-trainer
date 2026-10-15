@@ -1,8 +1,8 @@
-; Inno Setup script: wraps the self-contained publish folder into a per-user setup.exe.
+﻿; Inno Setup script: wraps the self-contained publish folder into a per-user setup.exe.
 ; Build with publish.ps1 (runs ISCC automatically when Inno Setup 6 is installed).
 
 #define AppName "Kinetic Trainer"
-#define AppVersion "0.2.0"
+#define AppVersion "0.2.1"
 #define AppExe "KineticTrainer.exe"
 #define SourceDir "..\dist\KineticTrainer-win-x64"
 
